@@ -1,3 +1,78 @@
+<html>
+<head>
+<scipt>
+</script>
+<style>
+html {
+  font-family: Arial;
+}
+#board {
+  border-collapse: collapse;
+}
+#board th {
+  font-weight: normal;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+#board td {
+  border: none;
+  width: 30px;
+  height: 30px; 
+  text-align: center;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  -webkit-tap-highlight-color: transparent;
+}
+#board td.white {
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="12" stroke="black" fill="white"/></svg>');
+}
+#board td.selectedwhite {
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="12" stroke="black" fill="white" fill-opacity="0.5"/></svg>');
+}
+#board td.black {
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="12" stroke="black" fill="black"/></svg>');
+}
+#board td.selectedblack {
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="12" stroke="black" fill="black" fill-opacity="0.5"/></svg>');
+}
+#pgn {
+  border-collapse: collapse;
+}
+#pgn td {
+  padding: 2px;
+  width: 50px;
+}
+#pgn td:first-child {
+  width: 20px;
+}
+#pgn td.selected {
+  background: lightblue;
+}
+#pgn tr:nth-child(even) {
+  background: lightgrey;
+}
+</style>
+</head>
+<body onload="init();">
+<table id="board">
+  <tbody/>
+</table>
+<select id="whiteAI" onchange="players[0].setAi(ais.filter(e => e.name == this.options[this.selectedIndex].value)[0])">
+</select> 
+<span>vs</span>
+<select id="blackAI" onchange="players[1].setAi(ais.filter(e => e.name == this.options[this.selectedIndex].value)[0])">
+</select> 
+<table id="pgn">
+  <thead><tr><td/><td onclick="game.back();">&lt;&lt;</td><td onclick="game.forward();">&gt;&gt;</td></tr></thead>
+  <tbody/>
+</table>
+</body>
+</html>
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/meinespiele/meinespiele.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
